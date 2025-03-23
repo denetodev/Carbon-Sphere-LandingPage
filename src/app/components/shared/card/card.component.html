@@ -1,0 +1,11 @@
+<div class="card" [ngClass]="{ 'card-hover': hover }">
+  <div class="card-icon" *ngIf="iconSrc">
+    <img [src]="iconSrc" [alt]="title" />
+  </div>
+  <div class="card-content">
+    <h3 class="card-title">{{ title }}</h3>
+    <p class="card-text">
+      <ng-content></ng-content>
+    </p>
+  </div>
+</div>

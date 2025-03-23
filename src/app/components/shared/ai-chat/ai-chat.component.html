@@ -1,0 +1,39 @@
+<div class="ai-chat" [class.active]="isOpen">
+      <button class="ai-chat-toggle" (click)="toggleChat()">
+        <span class="ai-chat-icon" *ngIf="!isOpen">
+          <i class="fas fa-robot"></i>
+        </span>
+        <span class="ai-chat-close" *ngIf="isOpen">
+          <i class="fas fa-times"></i>
+        </span>
+      </button>
+      
+      <div class="ai-chat-window">
+        <div class="ai-chat-header">
+          <h3>Assistente Virtual</h3>
+        </div>
+        
+        <div class="ai-chat-messages">
+          <div class="ai-chat-message ai-message" *ngFor="let message of messages">
+            <div *ngIf="message.sender === 'ai'" class="ai-message-content">
+              {{ message.text }}
+            </div>
+            <div *ngIf="message.sender === 'user'" class="user-message-content">
+              {{ message.text }}
+            </div>
+          </div>
+        </div>
+        
+        <div class="ai-chat-input">
+          <input 
+            type="text" 
+            [(ngModel)]="userMessage" 
+            placeholder="Digite sua mensagem..."
+            (keyup.enter)="sendMessage()"
+          >
+          <button (click)="sendMessage()">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>

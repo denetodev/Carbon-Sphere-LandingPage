@@ -1,0 +1,19 @@
+<nav class="navbar">
+      <div class="container navbar-container">
+        <a href="#" class="navbar-logo">
+          <img src="assets/images/logo.svg" alt="Carbon Sphere Logo">
+        </a>
+        <div class="navbar-links" [class.active]="isMenuOpen">
+          <a href="#about" class="navbar-link">Sobre nós</a>
+          <a href="#benefits" class="navbar-link">Benefícios</a>
+          <a href="#services" class="navbar-link">Serviços</a>
+          <a href="#market" class="navbar-link">Mercado</a>
+          <a href="#contact" class="navbar-link">Contato</a>
+        </div>
+        <button class="navbar-toggle" (click)="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>

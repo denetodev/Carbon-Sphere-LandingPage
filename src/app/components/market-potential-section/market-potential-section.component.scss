@@ -1,0 +1,53 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.market-section {
+  background-color: $dark-color;
+  color: $white;
+}
+
+.market-content {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xl;
+
+  @include respond-below($breakpoint-lg) {
+    flex-direction: column-reverse;
+    gap: $spacing-lg;
+  }
+}
+
+.market-text {
+  flex: 1;
+
+  @include respond-below($breakpoint-lg) {
+    text-align: center;
+  }
+}
+
+.market-title {
+  font-size: 2.5rem;
+  margin-bottom: $spacing-lg;
+
+  @include respond-below($breakpoint-md) {
+    font-size: 2rem;
+  }
+}
+
+.market-description {
+  font-size: 1.1rem;
+  margin-bottom: $spacing-xl;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.market-chart {
+  flex: 1;
+
+  img {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+  }
+}

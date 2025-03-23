@@ -1,0 +1,90 @@
+@use "sass:color";
+@use "variables" as *;
+@use "mixins" as *;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-heading;
+  font-weight: 600;
+  margin-bottom: $spacing-md;
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: $transition-quick;
+
+  &:hover {
+    color: color.adjust($primary-color, $lightness: -10%);
+  }
+}
+
+.section {
+  @include section-padding;
+}
+
+.container {
+  @include container;
+}
+
+.button {
+  @include button-base;
+}
+
+.button-primary {
+  background-color: $primary-color;
+  color: $white;
+
+  &:hover,
+  &:focus {
+    background-color: color.adjust($primary-color, $lightness: -10%);
+    color: $white;
+  }
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: $primary-color;
+  border-color: $primary-color;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: $spacing-xl;
+
+  @include respond-below($breakpoint-md) {
+    font-size: 2rem;
+    margin-bottom: $spacing-lg;
+  }
+}

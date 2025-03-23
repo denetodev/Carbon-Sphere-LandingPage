@@ -1,0 +1,37 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.card {
+  background-color: $white;
+  border-radius: $border-radius-md;
+  box-shadow: $box-shadow-sm;
+  padding: $spacing-lg;
+  height: 100%;
+  transition: $transition-regular;
+
+  &.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow-md;
+  }
+}
+
+.card-icon {
+  @include flex-center;
+  margin-bottom: $spacing-md;
+
+  img {
+    max-width: 60px;
+    max-height: 60px;
+  }
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: $spacing-sm;
+  color: $primary-color;
+}
+
+.card-text {
+  color: $text-color;
+  margin-bottom: 0;
+}

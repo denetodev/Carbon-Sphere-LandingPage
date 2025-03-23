@@ -1,0 +1,52 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.ai-assistant-section {
+  background-color: $white;
+}
+
+.ai-assistant-content {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xl;
+
+  @include respond-below($breakpoint-lg) {
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+}
+
+.ai-assistant-image {
+  flex: 1;
+
+  img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.ai-assistant-text {
+  flex: 1;
+
+  @include respond-below($breakpoint-lg) {
+    text-align: center;
+  }
+}
+
+.ai-assistant-title {
+  font-size: 2rem;
+  margin-bottom: $spacing-lg;
+  color: $primary-color;
+
+  @include respond-below($breakpoint-md) {
+    font-size: 1.75rem;
+  }
+}
+
+.ai-assistant-description {
+  font-size: 1.1rem;
+  margin-bottom: $spacing-xl;
+  line-height: 1.6;
+}

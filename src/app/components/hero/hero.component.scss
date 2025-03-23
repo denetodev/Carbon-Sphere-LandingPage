@@ -1,0 +1,83 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  background-image: url("/assets/images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: $white;
+
+  @include respond-below($breakpoint-md) {
+    min-height: 500px;
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba($dark-color, 0.8),
+    rgba($dark-color, 0.6)
+  );
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  max-width: 700px;
+
+  @include respond-below($breakpoint-md) {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: $spacing-lg;
+
+  @include respond-below($breakpoint-md) {
+    font-size: 2.5rem;
+  }
+
+  @include respond-below($breakpoint-sm) {
+    font-size: 2rem;
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: $spacing-xl;
+  opacity: 0.9;
+
+  @include respond-below($breakpoint-md) {
+    font-size: 1.1rem;
+  }
+}
+
+.hero-cta {
+  display: flex;
+  gap: $spacing-md;
+
+  @include respond-below($breakpoint-md) {
+    justify-content: center;
+  }
+
+  @include respond-below($breakpoint-sm) {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}

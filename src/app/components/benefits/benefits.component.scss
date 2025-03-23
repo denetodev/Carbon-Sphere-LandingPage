@@ -1,0 +1,26 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.benefits-section {
+  background-color: $white;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @include respond-below($breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-below($breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.benefits-cta {
+  text-align: center;
+  margin-top: $spacing-lg;
+}
