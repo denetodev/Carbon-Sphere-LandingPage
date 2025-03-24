@@ -1,19 +1,46 @@
 <nav class="navbar">
-      <div class="container navbar-container">
-        <a href="#" class="navbar-logo">
-          <img src="assets/images/logo.svg" alt="Carbon Sphere Logo">
-        </a>
-        <div class="navbar-links" [class.active]="isMenuOpen">
-          <a href="#about" class="navbar-link">Sobre nós</a>
-          <a href="#benefits" class="navbar-link">Benefícios</a>
-          <a href="#services" class="navbar-link">Serviços</a>
-          <a href="#market" class="navbar-link">Mercado</a>
-          <a href="#contact" class="navbar-link">Contato</a>
+  <div class="navbar-container">
+    <a href="#" class="navbar-logo">
+      <img src="assets/icons/logo.png" alt="Carbon Sphere Logo" />
+    </a>
+
+    <div class="navbar-links-wrapper">
+      <div class="navbar-links-container">
+        <div class="navbar-links">
+          <a
+            href="#about"
+            class="navbar-link"
+            (click)="scrollToSection($event, '#about')"
+            >Sobre Nós</a
+          >
+          <a
+            href="#benefits"
+            class="navbar-link"
+            (click)="scrollToSection($event, '#benefits')"
+            >Benefícios</a
+          >
+          <a
+            href="#services"
+            class="navbar-link"
+            (click)="scrollToSection($event, '#services')"
+            >Serviços</a
+          >
+          <a
+            href="#market"
+            class="navbar-link"
+            (click)="scrollToSection($event, '#market')"
+            >Mercado</a
+          >
         </div>
-        <button class="navbar-toggle" (click)="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
-    </nav>
+    </div>
+
+    <a href="#contact" class="contact-button">Contato</a>
+
+    <button class="navbar-toggle" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
