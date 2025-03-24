@@ -1,10 +1,10 @@
 <button
   [type]="type"
   [class]="
-    'button ' + (variant === 'primary' ? 'button-primary' : 'button-secondary')
+    'button ' + (variant === 'primary' ? 'button-primary' : 'button-secondary') + ' ' + customClass
   "
   [disabled]="disabled"
-  (click)="onClick()"
+  (click)="onClick.emit()"
 >
   <ng-content></ng-content>
 </button>

@@ -326,17 +326,8 @@
 }
 
 .ai-cta-button {
-  display: inline-flex;
-  align-items: center;
-  padding: $spacing-sm $spacing-lg;
-  background-color: $secondary-color;
-  color: $white;
-  border-radius: $border-radius-md;
+  padding: $spacing-sm $spacing-lg; // Sobrescreve o padding base
   font-weight: 600;
-  transition: $transition-regular;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba($secondary-color, 0.3);
 
   &::before {
     content: "";
@@ -354,10 +345,7 @@
     transform: translateX(-100%);
   }
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba($secondary-color, 0.4);
-
+  &:hover:not(:disabled) {
     &::before {
       animation: shimmer 1.5s infinite;
     }
@@ -375,6 +363,12 @@
 }
 
 @keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
   100% {
     transform: translateX(100%);
   }

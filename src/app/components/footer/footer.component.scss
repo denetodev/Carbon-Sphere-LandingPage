@@ -1,8 +1,13 @@
+@use "sass:color";
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixins" as *;
 
 .footer {
-  background: linear-gradient(135deg, $dark-color, darken($dark-color, 10%));
+  background: linear-gradient(
+    135deg,
+    $dark-color,
+    color.adjust($dark-color, $lightness: -10%)
+  );
   color: $white;
   padding: $spacing-xxl 0;
   font-family: $font-family-base;

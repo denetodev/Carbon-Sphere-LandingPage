@@ -33,64 +33,68 @@
 }
 
 .benefits-header {
+  display: flex;
   text-align: center;
+  flex-direction: column;
   max-width: 800px;
   margin: 0 auto $spacing-xxl auto;
   position: relative;
   z-index: 2;
-}
 
-.section-badge {
-  display: inline-block;
-  background-color: rgba($primary-color, 0.2);
-  color: $primary-color;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: $spacing-xs $spacing-md;
-  border-radius: $border-radius-md;
-  margin-bottom: $spacing-md;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.section-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: $spacing-md;
-  color: $white;
-  position: relative;
-  display: inline-block;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(to right, $primary-color, $accent-color);
-    border-radius: $border-radius-sm;
+  .section-badge {
+    display: inline-block;
+    background-color: rgba($primary-color, 0.2);
+    color: $primary-color;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $border-radius-md;
+    margin-bottom: $spacing-md;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    max-width: 250px;
   }
 
-  @include respond-below($breakpoint-md) {
-    font-size: 2.5rem;
+  .section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: $spacing-md;
+    color: $white;
+    position: relative;
+    display: inline-block;
+    text-align: start;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, $primary-color, $accent-color);
+      border-radius: $border-radius-sm;
+    }
+
+    @include respond-below($breakpoint-md) {
+      font-size: 2.5rem;
+    }
+
+    @include respond-below($breakpoint-sm) {
+      font-size: 2rem;
+    }
   }
 
-  @include respond-below($breakpoint-sm) {
-    font-size: 2rem;
-  }
-}
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: rgba($white, 0.8);
+    max-width: 600px;
+    margin: $spacing-lg auto 0;
+    line-height: 1.6;
 
-.section-subtitle {
-  font-size: 1.2rem;
-  color: rgba($white, 0.8);
-  max-width: 600px;
-  margin: $spacing-lg auto 0;
-  line-height: 1.6;
-
-  @include respond-below($breakpoint-md) {
-    font-size: 1.1rem;
+    @include respond-below($breakpoint-md) {
+      font-size: 1.1rem;
+    }
   }
 }
 
@@ -280,13 +284,9 @@
 }
 
 .cta-button {
-  padding: $spacing-md $spacing-xl;
   font-size: 1.1rem;
   font-weight: 600;
-  border-radius: $border-radius-md;
-  box-shadow: 0 10px 20px rgba($primary-color, 0.3);
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 10px 20px rgba($primary-color, 0.3); // Mais sombra que o base
 
   &::before {
     content: "";
@@ -294,23 +294,22 @@
     top: 0;
     left: -100%;
     width: 100%;
-    height: 100%;
+    height: 120%;
     background: linear-gradient(
       90deg,
       transparent,
       rgba($white, 0.2),
       transparent
     );
-    transition: $transition-regular;
+    transition: left 0.7s ease;
   }
 
-  &:hover {
-    transform: translateY(-3px);
+  &:hover:not(:disabled) {
+    transform: translateY(-3px); // Mais elevação que o base
     box-shadow: 0 15px 25px rgba($primary-color, 0.4);
 
     &::before {
       left: 100%;
-      transition: 0.7s;
     }
   }
 }

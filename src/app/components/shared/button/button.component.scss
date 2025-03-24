@@ -1,0 +1,48 @@
+@use "sass:color";
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.button {
+  // Estilos base comuns a todos os botões
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-md;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: $transition-regular;
+  position: relative;
+  overflow: hidden;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  // Variante primária
+  &.button-primary {
+    background-color: $primary-color;
+    color: $white;
+    box-shadow: 0 4px 15px rgba($primary-color, 0.2);
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba($primary-color, 0.3);
+    }
+  }
+
+  // Variante secundária
+  &.button-secondary {
+    background-color: $secondary-color;
+    color: $white;
+    box-shadow: 0 4px 15px rgba($secondary-color, 0.2);
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba($secondary-color, 0.3);
+    }
+  }
+}
