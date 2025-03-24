@@ -3,26 +3,14 @@
 @use "../../../styles/mixins" as *;
 
 .about-section {
-  background-color: $light-color;
+  background-color: $dark-color; // Fundo escuro
   padding: $spacing-xl 0;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: color.adjust($light-color, $lightness: 5%);
-  }
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 $spacing-md;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: $spacing-lg;
-  color: $primary-color;
 }
 
 .about-content {
@@ -33,37 +21,67 @@
   @include respond-below($breakpoint-lg) {
     flex-direction: column;
     gap: $spacing-lg;
+    text-align: center;
   }
 }
 
-.about-image {
+// Estilização do número "01"
+.about-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: $primary-color; // Verde neon
+  text-align: center;
+  margin-bottom: $spacing-md;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: $primary-color;
+    margin: $spacing-sm auto 0;
+  }
+}
+
+.about-image-wrapper {
   flex: 1;
+  text-align: center;
+}
+
+.about-image {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1); // Efeito vidro
+  border-radius: 12px;
+  padding: $spacing-sm;
   transition: transform 0.3s ease;
 
   img {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
+    border-radius: 12px;
     display: block;
-    margin: 0 auto;
-    transition: opacity 0.5s ease;
   }
 
   &:hover {
-    transform: scale(1.05); // Zoom sutil na imagem
+    transform: scale(1.05);
   }
 }
 
 .about-text {
   flex: 1;
 
-  p {
-    margin-bottom: $spacing-lg;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: $text-color;
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $primary-color; // Verde neon
+    margin-bottom: $spacing-md;
   }
 
-  @include respond-below($breakpoint-lg) {
-    text-align: center;
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: $white;
+    margin-bottom: $spacing-lg;
   }
 }
