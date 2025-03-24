@@ -4,33 +4,80 @@
 .market-section {
   background-color: $dark-color;
   color: $white;
+  position: relative;
+  padding: $spacing-xxl 0;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      110deg,
+      rgba($primary-color, 0.05) 0%,
+      rgba($dark-color, 0) 50%
+    );
+    z-index: 1;
+  }
 }
 
 .market-content {
   display: flex;
   align-items: center;
-  gap: $spacing-xl;
+  gap: $spacing-xxl;
+  position: relative;
+  z-index: 2;
 
   @include respond-below($breakpoint-lg) {
     flex-direction: column-reverse;
-    gap: $spacing-lg;
+    gap: $spacing-xl;
   }
 }
 
 .market-text {
   flex: 1;
+  max-width: 600px;
 
   @include respond-below($breakpoint-lg) {
     text-align: center;
+    max-width: 100%;
   }
 }
 
+.market-badge {
+  display: inline-block;
+  background-color: rgba($primary-color, 0.15);
+  color: $primary-color;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $border-radius-md;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: $spacing-md;
+}
+
 .market-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: $spacing-lg;
+  font-family: $font-family-heading;
+  font-weight: 700;
+  line-height: 1.2;
+  background: linear-gradient(90deg, $white 0%, rgba($accent-color, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 
   @include respond-below($breakpoint-md) {
-    font-size: 2rem;
+    font-size: 2.25rem;
+  }
+
+  @include respond-below($breakpoint-sm) {
+    font-size: 1.75rem;
   }
 }
 
@@ -38,16 +85,140 @@
   font-size: 1.1rem;
   margin-bottom: $spacing-xl;
   opacity: 0.9;
-  line-height: 1.6;
+  line-height: 1.8;
+
+  strong {
+    color: $accent-color;
+    font-weight: 600;
+  }
+
+  @include respond-below($breakpoint-md) {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+.market-stats {
+  display: flex;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-xl;
+
+  @include respond-below($breakpoint-md) {
+    gap: $spacing-lg;
+    justify-content: center;
+  }
+
+  @include respond-below($breakpoint-sm) {
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $primary-color;
+    line-height: 1;
+    margin-bottom: $spacing-xs;
+
+    @include respond-below($breakpoint-md) {
+      font-size: 2rem;
+    }
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+
+    @include respond-below($breakpoint-md) {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.cta-button {
+  padding: $spacing-sm $spacing-xl;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: $border-radius-md;
+  transition: $transition-regular;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    transition: $transition-regular;
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
+    transform: rotate(30deg) translate(-30%, -30%);
+  }
 }
 
 .market-chart {
   flex: 1;
+  transform: translateY(-$spacing-md);
+
+  @include respond-below($breakpoint-lg) {
+    transform: translateY(0);
+  }
+}
+
+.chart-container {
+  position: relative;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: $transition-regular;
+
+  &:hover {
+    transform: perspective(1000px) rotateY(0);
+  }
 
   img {
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
     display: block;
     margin: 0 auto;
+    transition: $transition-regular;
+    filter: drop-shadow(0 10px 15px rgba($primary-color, 0.3));
+  }
+
+  .chart-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba($primary-color, 0.1) 0%,
+      rgba($dark-color, 0) 50%
+    );
+    pointer-events: none;
+  }
+
+  @include respond-below($breakpoint-lg) {
+    max-width: 80%;
+    margin: 0 auto;
+    transform: perspective(1000px) rotateY(0);
+  }
+
+  @include respond-below($breakpoint-sm) {
+    max-width: 100%;
   }
 }

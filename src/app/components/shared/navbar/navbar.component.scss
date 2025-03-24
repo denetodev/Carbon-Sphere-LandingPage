@@ -9,7 +9,40 @@
   z-index: 1000;
   display: flex;
   justify-content: center;
-  padding: $spacing-sm 0;
+  padding: $spacing-md 0;
+  transition: all 0.3s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($dark-color, 0.01);
+    backdrop-filter: blur(0px);
+    transition: all 0.4s ease;
+    z-index: -1;
+  }
+
+  &.navbar-scrolled {
+    padding: $spacing-sm 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    &::before {
+      background: rgba($dark-color, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-links-container {
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .logo-text {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 }
 
 .navbar-container {
@@ -24,9 +57,36 @@
 .navbar-logo {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  position: relative;
 
   img {
     height: 45px;
+    transition: all 0.3s ease;
+  }
+
+  .logo-text {
+    margin-left: $spacing-sm;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $white;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease 0.1s;
+
+    .logo-accent {
+      color: $primary-color;
+    }
+
+    @include respond-below($breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
   }
 }
 
@@ -34,35 +94,93 @@
   flex-grow: 1;
   display: flex;
   justify-content: center;
+  transition: all 0.3s ease;
+
+  @include respond-below($breakpoint-md) {
+    display: none;
+
+    &.is-open {
+      display: flex;
+    }
+  }
 }
 
 .navbar-links-container {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1); // Fundo translúcido
-  border: 1px solid rgba(255, 250, 250, 0.651);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 40px;
   padding: $spacing-sm $spacing-xxl;
-  backdrop-filter: blur(10px); // Aplica o efeito de vidro
-  -webkit-backdrop-filter: blur(
-    10px
-  ); // Para compatibilidade com navegadores WebKit
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  @include respond-below($breakpoint-md) {
+    border-radius: 0;
+    padding: $spacing-md;
+    width: 100%;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+  }
 }
 
 .navbar-links {
   display: flex;
   align-items: center;
+
+  @include respond-below($breakpoint-md) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .navbar-link {
   margin: 0 $spacing-md;
   color: white;
-  font-weight: 400;
+  font-weight: 500;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: $spacing-xs 0;
 
-  &:hover {
+  .link-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  .link-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: $primary-color;
+    transition: all 0.3s ease;
+    opacity: 0;
+    border-radius: 2px;
+  }
+
+  &:hover,
+  &.active {
     color: $primary-color;
+
+    .link-indicator {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  @include respond-below($breakpoint-md) {
+    margin: $spacing-md 0;
+    font-size: 1.2rem;
+    text-align: center;
+
+    .link-indicator {
+      display: none;
+    }
   }
 }
 
@@ -71,20 +189,214 @@
   color: white;
   padding: $spacing-xs $spacing-lg;
   border-radius: 25px;
-  font-weight: 400;
+  font-weight: 500;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+
+  .button-icon {
+    margin-right: $spacing-xs;
+    transition: transform 0.3s ease;
+  }
 
   &:hover {
-    background-color: darken($secondary-color, 10%);
+    background-color: darken($primary-color, 10%);
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+
+    .button-icon {
+      transform: rotate(-15deg);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba($primary-color, 0.2);
   }
 }
 
 .navbar-toggle {
   display: none;
+  background: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1200;
 
   @include respond-below($breakpoint-md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  span {
     display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $white;
+    transition: all 0.3s ease;
+
+    &.top-bar {
+      transform-origin: left center;
+
+      &.animate {
+        transform: rotate(45deg);
+      }
+    }
+
+    &.middle-bar {
+      &.animate {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+    }
+
+    &.bottom-bar {
+      transform-origin: left center;
+
+      &.animate {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+// Barra de progresso de scroll
+.scroll-progress-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, $secondary-color, $accent-color);
+  width: 0%;
+  transition: width 0.05s ease;
+}
+
+// Menu mobile
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba($dark-color, 0.95);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.mobile-menu-container {
+  width: 100%;
+  max-width: 400px;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  max-height: 600px;
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-menu-link {
+  font-size: 1.4rem;
+  color: $white;
+  text-decoration: none;
+  padding: $spacing-md;
+  font-weight: 500;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: $primary-color;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  &:hover {
+    color: $primary-color;
+
+    &::after {
+      width: 30px;
+    }
+  }
+
+  &.contact {
+    margin-top: $spacing-lg;
+    background-color: $primary-color;
+    border-radius: 30px;
+    padding: $spacing-sm $spacing-xl;
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      color: $white;
+    }
+  }
+}
+
+.mobile-menu-footer {
+  text-align: center;
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: $white;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $primary-color;
+      transform: translateY(-3px);
+    }
+  }
+
+  .copyright {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
   }
 }

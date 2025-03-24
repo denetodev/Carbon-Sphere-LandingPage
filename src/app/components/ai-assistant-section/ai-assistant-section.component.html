@@ -1,21 +1,132 @@
 <section class="section ai-assistant-section">
-      <div class="container">
-        <div class="ai-assistant-content">
-          <div class="ai-assistant-image">
-            <img src="assets/images/ai-assistant.svg" alt="AI Assistant Illustration">
+  <div class="container">
+    <div class="ai-assistant-content">
+      <div class="ai-assistant-image">
+        <div class="image-container">
+          <div class="tech-circles">
+            <span class="circle circle-1"></span>
+            <span class="circle circle-2"></span>
+            <span class="circle circle-3"></span>
           </div>
-          
-          <div class="ai-assistant-text">
-            <h2 class="ai-assistant-title">Autoatendimento com Inteligência Artificial</h2>
-            <p class="ai-assistant-description">
-              Nosso chatbot utiliza inteligência artificial para responder suas dúvidas sobre créditos de carbono, 
-              fornecer informações básicas sobre o mercado e direcionar você para recursos adicionais. 
-              Tudo de forma rápida e intuitiva.
-            </p>
-            <app-button variant="secondary" (click)="triggerAiChat()">
-              Fale com nossa IA
-            </app-button>
-          </div>
+          <img
+            src="assets/image/carbon-ai.png"
+            alt="AI Assistant Illustration"
+          />
+          <div class="pulse-effect"></div>
         </div>
       </div>
-    </section>
+
+      <div class="ai-assistant-text">
+        <div class="tech-badge">
+          <span class="tech-icon"></span>
+          Tecnologia Avançada
+        </div>
+        <h2 class="ai-assistant-title">
+          Autoatendimento com Inteligência Artificial
+        </h2>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 15C21 16.0609 20.5786 17.0783 19.8284 17.8284C19.0783 18.5786 18.0609 19 17 19H7C5.93913 19 4.92172 18.5786 4.17157 17.8284C3.42143 17.0783 3 16.0609 3 15V9C3 7.93913 3.42143 6.92172 4.17157 6.17157C4.92172 5.42143 5.93913 5 7 5H17C18.0609 5 19.0783 5.42143 19.8284 6.17157C20.5786 6.92172 21 7.93913 21 9V15Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7 9H17V15H7V9Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h4>Respostas Instantâneas</h4>
+              <p>
+                Tire suas dúvidas sobre créditos de carbono e receba respostas
+                em segundos.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 16V12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 8H12.01"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h4>Informações de Mercado</h4>
+              <p>
+                Acesse dados atualizados sobre o mercado de carbono de forma
+                intuitiva.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <app-button
+          variant="secondary"
+          class="ai-cta-button"
+          (click)="triggerAiChat()"
+        >
+          <span class="button-icon">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          Fale com nossa IA
+        </app-button>
+      </div>
+    </div>
+  </div>
+</section>

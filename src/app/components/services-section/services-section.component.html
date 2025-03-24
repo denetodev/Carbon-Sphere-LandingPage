@@ -1,32 +1,125 @@
 <section id="services" class="section services-section">
-      <div class="container">
-        <h2 class="section-title">Nossos Serviços</h2>
-        
-        <div class="services-grid">
-          <div class="service-item">
-            <app-card title="Carbon Intelligence" iconSrc="assets/icons/intelligence.svg">
-              Medição automatizada de emissões via IA, análise preditiva de necessidades de compensação, 
-              recomendações personalizadas de projetos e dashboard de impacto em tempo real.
-            </app-card>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">
+        Nossos <span class="highlight">Serviços</span>
+      </h2>
+      <p class="section-subtitle">
+        Soluções completas para o mercado de créditos de carbono
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-item" data-aos="fade-up" data-aos-delay="100">
+        <app-card
+          title="Carbon Intelligence"
+          iconSrc="assets/icons/intelligence.png"
+          class="service-card"
+        >
+          <div class="service-content">
+            <p class="service-description">
+              Medição automatizada de emissões via IA, análise preditiva de
+              necessidades de compensação, recomendações personalizadas de
+              projetos e dashboard de impacto em tempo real.
+            </p>
+            <ul class="service-features">
+              <li>
+                <i class="fas fa-check-circle"></i> Medição automatizada via IA
+              </li>
+              <li><i class="fas fa-check-circle"></i> Análise preditiva</li>
+              <li>
+                <i class="fas fa-check-circle"></i> Dashboard em tempo real
+              </li>
+            </ul>
+            <a href="#" class="service-link"
+              >Saiba mais <i class="fas fa-arrow-right"></i
+            ></a>
           </div>
-          
-          <div class="service-item">
-            <app-card title="Carbon Exchange" iconSrc="assets/icons/exchange.svg">
-              Marketplace global de créditos de carbono com sistema de leilões automatizados, 
-              carteira digital de créditos e histórico completo de transações.
-            </app-card>
+        </app-card>
+      </div>
+
+      <div
+        class="service-item featured"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="featured-badge">Popular</div>
+        <app-card
+          title="Carbon Exchange"
+          iconSrc="assets/icons/exchange.png"
+          class="service-card"
+        >
+          <div class="service-content">
+            <p class="service-description">
+              Marketplace global de créditos de carbono com sistema de leilões
+              automatizados, carteira digital de créditos e histórico completo
+              de transações.
+            </p>
+            <ul class="service-features">
+              <li><i class="fas fa-check-circle"></i> Marketplace global</li>
+              <li><i class="fas fa-check-circle"></i> Leilões automatizados</li>
+              <li>
+                <i class="fas fa-check-circle"></i> Carteira digital de créditos
+              </li>
+            </ul>
+            <a href="#" class="service-link"
+              >Saiba mais <i class="fas fa-arrow-right"></i
+            ></a>
           </div>
-          
-          <div class="service-item">
-            <app-card title="Project Certification" iconSrc="assets/icons/certification.svg">
-              Certificação automatizada via IA, monitoramento contínuo de projetos, 
-              tokenização de créditos e relatórios de impacto verificados.
-            </app-card>
+        </app-card>
+      </div>
+
+      <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+        <app-card
+          title="Project Certification"
+          iconSrc="assets/icons/certification.png"
+          class="service-card"
+        >
+          <div class="service-content">
+            <p class="service-description">
+              Certificação automatizada via IA, monitoramento contínuo de
+              projetos, tokenização de créditos e relatórios de impacto
+              verificados.
+            </p>
+            <ul class="service-features">
+              <li>
+                <i class="fas fa-check-circle"></i> Certificação automatizada
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Monitoramento contínuo
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Tokenização de créditos
+              </li>
+            </ul>
+            <a href="#" class="service-link"
+              >Saiba mais <i class="fas fa-arrow-right"></i
+            ></a>
           </div>
+        </app-card>
+      </div>
+    </div>
+
+    <div class="services-footer">
+      <div class="services-stats">
+        <div class="stat-item">
+          <span class="stat-number">25+</span>
+          <span class="stat-label">Projetos</span>
         </div>
-        
-        <div class="services-cta">
-          <app-button variant="primary">Conheça Nossos Serviços</app-button>
+        <div class="stat-item">
+          <span class="stat-number">100K+</span>
+          <span class="stat-label">Créditos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Parceiros</span>
         </div>
       </div>
-    </section>
+      <div class="services-cta">
+        <app-button variant="primary">Conheça Nossos Serviços</app-button>
+        <a href="#contact" class="text-link">Fale com um especialista</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -2,36 +2,45 @@
 @use "../../../styles/mixins" as *;
 
 .footer {
-  background-color: $dark-color;
+  background: linear-gradient(135deg, $dark-color, darken($dark-color, 10%));
   color: $white;
-  padding: $spacing-xl 0 $spacing-md;
+  padding: $spacing-xxl 0;
+  font-family: $font-family-base;
 }
 
 .footer-content {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: $spacing-xl;
-  margin-bottom: $spacing-xl;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
 
   @include respond-below($breakpoint-md) {
     flex-direction: column;
-    gap: $spacing-lg;
+    text-align: center;
   }
 }
 
 .footer-logo {
   flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   img {
-    height: 40px;
+    height: 50px;
     margin-bottom: $spacing-md;
+    filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.3));
   }
 }
 
 .footer-description {
-  opacity: 0.8;
+  opacity: 0.85;
   line-height: 1.6;
-  max-width: 300px;
+  max-width: 320px;
+  font-size: 1rem;
 }
 
 .footer-links {
@@ -42,21 +51,22 @@
 
   @include respond-below($breakpoint-sm) {
     flex-direction: column;
-    gap: $spacing-md;
+    align-items: center;
   }
 }
 
 .footer-links-column {
   h3 {
     color: $accent-color;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: $spacing-md;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 
   ul {
     list-style: none;
     padding: 0;
-    margin: 0;
   }
 
   li {
@@ -64,12 +74,13 @@
   }
 
   a {
-    color: rgba($white, 0.8);
-    transition: $transition-quick;
+    color: rgba($white, 0.85);
+    transition: $transition-regular;
+    font-weight: 500;
 
     &:hover {
-      color: $white;
-      text-decoration: underline;
+      color: $primary-color;
+      transform: translateX(5px);
     }
   }
 }
@@ -78,13 +89,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: $spacing-md;
-  border-top: 1px solid rgba($white, 0.1);
+  border-top: 1px solid rgba($white, 0.2);
+  padding: $spacing-md $container-padding 0;
+  max-width: $container-max-width;
+  margin: 0 auto;
 
   p {
     margin: 0;
-    opacity: 0.7;
     font-size: 0.9rem;
+    opacity: 0.7;
   }
 
   @include respond-below($breakpoint-md) {
@@ -96,22 +109,25 @@
 
 .footer-social {
   display: flex;
-  gap: $spacing-sm;
+  gap: $spacing-md;
 }
 
 .footer-social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: $border-radius-round;
   background-color: rgba($white, 0.1);
   color: $white;
+  font-size: 1.2rem;
   transition: $transition-quick;
+  box-shadow: $box-shadow-sm;
 
   &:hover {
     background-color: $primary-color;
-    transform: translateY(-3px);
+    transform: scale(1.1);
+    box-shadow: $box-shadow-md;
   }
 }

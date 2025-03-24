@@ -1,38 +1,84 @@
+<!-- HTML Melhorado para a Seção de Benefícios -->
 <section id="benefits" class="section benefits-section">
   <div class="container">
-    <h2 class="section-title">Benefícios para Todos</h2>
+    <div class="benefits-header">
+      <div class="section-badge">Vantagens Exclusivas</div>
+      <h2 class="section-title">Benefícios para Todos</h2>
+      <p class="section-subtitle">
+        Nossa plataforma foi desenvolvida para criar valor em toda a cadeia do
+        mercado de carbono
+      </p>
+    </div>
 
     <div class="benefits-grid">
-      <div class="benefit-item">
-        <app-card title="Para Empresas" iconSrc="assets/icons/company.svg">
-          Simplificação do processo de compensação, redução de até 70% no tempo
-          de processo, economia de até 30% em custos operacionais,
-          rastreabilidade completa e relatórios ESG automatizados.
-        </app-card>
+      <div class="benefit-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <div class="icon-circle">
+              <img src="assets/icons/company.png" alt="Empresas" />
+            </div>
+          </div>
+          <h3 class="benefit-title">Para Empresas</h3>
+          <ul class="benefit-list">
+            <li>Simplificação do processo de compensação</li>
+            <li>Redução de até 70% no tempo de processo</li>
+            <li>Economia de até 30% em custos operacionais</li>
+            <li>Rastreabilidade completa</li>
+            <li>Relatórios ESG automatizados</li>
+          </ul>
+          <div class="benefit-card-bg"></div>
+        </div>
       </div>
 
-      <div class="benefit-item">
-        <app-card
-          title="Para Projetos Ambientais"
-          iconSrc="assets/icons/nature.svg"
-        >
-          Acesso direto ao mercado global, redução de custos de certificação,
-          pagamentos mais rápidos e maior visibilidade.
-        </app-card>
+      <div class="benefit-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <div class="icon-circle">
+              <img src="assets/icons/nature.png" alt="Projetos Ambientais" />
+            </div>
+          </div>
+          <h3 class="benefit-title">Para Projetos Ambientais</h3>
+          <ul class="benefit-list">
+            <li>Acesso direto ao mercado global</li>
+            <li>Redução de custos de certificação</li>
+            <li>Pagamentos mais rápidos</li>
+            <li>Maior visibilidade no mercado</li>
+          </ul>
+          <div class="benefit-card-bg"></div>
+        </div>
       </div>
 
-      <div class="benefit-item">
-        <app-card title="Para o Mercado" iconSrc="assets/icons/market.svg">
-          Maior liquidez e transparência nas transações, criando um ecossistema
-          de carbono mais eficiente e confiável para todos os participantes.
-        </app-card>
+      <div class="benefit-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <div class="icon-circle">
+              <img src="assets/icons/market.png" alt="Mercado" />
+            </div>
+          </div>
+          <h3 class="benefit-title">Para o Mercado</h3>
+          <ul class="benefit-list">
+            <li>Maior liquidez nas transações</li>
+            <li>Transparência em todas as operações</li>
+            <li>Ecossistema de carbono mais eficiente</li>
+            <li>Confiabilidade para todos os participantes</li>
+          </ul>
+          <div class="benefit-card-bg"></div>
+        </div>
       </div>
     </div>
 
     <div class="benefits-cta">
-      <app-button variant="secondary"
-        >Descubra como podemos ajudar você</app-button
-      >
+      <app-button variant="primary" class="cta-button">
+        Descubra como podemos ajudar você
+      </app-button>
+      <div class="cta-particles">
+        <span class="particle particle-1"></span>
+        <span class="particle particle-2"></span>
+        <span class="particle particle-3"></span>
+      </div>
     </div>
   </div>
+
+  <div class="benefits-shape shape-left"></div>
+  <div class="benefits-shape shape-right"></div>
 </section>

@@ -2,7 +2,79 @@
 @use "../../../styles/mixins" as *;
 
 .services-section {
-  background-color: $light-color;
+  background-color: $dark-color;
+  padding: $spacing-xxl 0;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to top, rgba($black, 0.4), transparent);
+    pointer-events: none;
+  }
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+  position: relative;
+}
+
+.section-number {
+  display: inline-block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: rgba($primary-color, 0.15);
+  font-family: $font-family-heading;
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: $white;
+  margin-bottom: $spacing-md;
+  position: relative;
+  z-index: 2;
+  font-family: $font-family-heading;
+  display: inline-block;
+
+  .highlight {
+    color: $primary-color;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background-color: rgba($primary-color, 0.2);
+      z-index: -1;
+    }
+  }
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: rgba($white, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .services-grid {
@@ -17,14 +89,213 @@
 
   @include respond-below($breakpoint-md) {
     grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 .service-item {
   height: 100%;
+  position: relative;
+  transition: $transition-regular;
+
+  &:hover {
+    transform: translateY(-10px);
+
+    .service-card {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba($primary-color, 0.1), 0 0 20px rgba($primary-color, 0.2);
+    }
+
+    .service-link {
+      color: $accent-color;
+
+      i {
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  &.featured {
+    z-index: 2;
+
+    .service-card {
+      border: 1px solid rgba($primary-color, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15),
+        0 0 20px rgba($primary-color, 0.15);
+      transform: scale(1.05);
+
+      @include respond-below($breakpoint-md) {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+.featured-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: linear-gradient(45deg, $primary-color, $accent-color);
+  color: $white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 15px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+  z-index: 3;
+}
+
+:host ::ng-deep {
+  .service-card {
+    height: 100%;
+    background: rgba($white, 0.03);
+    border-radius: $border-radius-lg;
+    transition: $transition-regular;
+    overflow: hidden;
+    border: 1px solid rgba($white, 0.05);
+    backdrop-filter: blur(5px);
+
+    .card-header {
+      padding: $spacing-md;
+      border-bottom: 1px solid rgba($white, 0.05);
+      display: flex;
+      align-items: center;
+
+      .card-icon {
+        width: 48px;
+        height: 48px;
+        margin-right: $spacing-md;
+        background: rgba($primary-color, 0.1);
+        border-radius: $border-radius-md;
+        padding: $spacing-xs;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          height: auto;
+          filter: brightness(0) invert(1);
+          opacity: 0.9;
+        }
+      }
+
+      .card-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: $white;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.service-content {
+  padding: $spacing-md;
+}
+
+.service-description {
+  color: rgba($text-color, 0.8);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: $spacing-md;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 $spacing-md;
+
+  li {
+    color: rgba($text-color, 0.7);
+    margin-bottom: $spacing-xs;
+    display: flex;
+    align-items: center;
+
+    i {
+      color: $primary-color;
+      margin-right: $spacing-xs;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.service-link {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  transition: $transition-regular;
+
+  i {
+    margin-left: $spacing-xs;
+    transition: $transition-regular;
+  }
+}
+
+.services-footer {
+  margin-top: $spacing-xxl;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+
+  @include respond-below($breakpoint-lg) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.services-stats {
+  display: flex;
+  gap: $spacing-xl;
+
+  @include respond-below($breakpoint-md) {
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $primary-color;
+    line-height: 1;
+    font-family: $font-family-heading;
+  }
+
+  .stat-label {
+    color: rgba($white, 0.7);
+    font-size: 0.9rem;
+    margin-top: $spacing-xs;
+  }
 }
 
 .services-cta {
-  text-align: center;
-  margin-top: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.text-link {
+  color: rgba($white, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: $transition-quick;
+
+  &:hover {
+    color: $primary-color;
+    text-decoration: underline;
+  }
 }
