@@ -28,7 +28,7 @@ A **Carbon Sphere** é mais do que uma landing page — é uma porta de entrada 
 ### Screenshot
 
 <p align="center">
- <img src="https://example.com/carbon-sphere-preview.png" alt="Design da Carbon Sphere">
+ <img src="https://raw.githubusercontent.com/denetodev/Carbon-Sphere-LandingPage/refs/heads/main/design/carbonsphere.png" alt="Design da Carbon Sphere">
 </p>
 _Visualize o futuro: uma prévia da landing page da Carbon Sphere!_
 
