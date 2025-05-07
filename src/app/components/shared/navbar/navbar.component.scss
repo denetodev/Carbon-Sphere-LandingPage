@@ -101,7 +101,7 @@
     display: none;
 
     &.is-open {
-      display: flex;
+      display: none; // Handled by overlay
     }
   }
 }
@@ -118,13 +118,7 @@
   transition: all 0.3s ease;
 
   @include respond-below($breakpoint-md) {
-    border-radius: 0;
-    padding: $spacing-md;
-    width: 100%;
-    flex-direction: column;
-    background: transparent;
-    border: none;
-    backdrop-filter: none;
+    display: none;
   }
 }
 
@@ -133,8 +127,7 @@
   align-items: center;
 
   @include respond-below($breakpoint-md) {
-    flex-direction: column;
-    width: 100%;
+    display: none;
   }
 }
 
@@ -192,9 +185,9 @@
   border-radius: 25px;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
+  transition: all 0.3s ease;
 
   .button-icon {
     margin-right: $spacing-xs;
@@ -245,7 +238,7 @@
       transform-origin: left center;
 
       &.animate {
-        transform: rotate(45deg);
+        transform: rotate(45deg) translateY(8px);
       }
     }
 
@@ -260,7 +253,7 @@
       transform-origin: left center;
 
       &.animate {
-        transform: rotate(-45deg);
+        transform: rotate(-45deg) translateY(-8px);
       }
     }
   }
@@ -313,7 +306,8 @@
   padding: $spacing-xl;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   max-height: 600px;
 }
@@ -322,20 +316,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .mobile-menu-link {
   font-size: 1.4rem;
   color: $white;
   text-decoration: none;
-  padding: $spacing-md;
+  padding: $spacing-md 0;
   font-weight: 500;
   position: relative;
+  width: 100%;
+  text-align: center;
 
   &::after {
     content: "";
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     left: 50%;
     width: 0;
     height: 2px;
@@ -357,6 +354,9 @@
     background-color: $primary-color;
     border-radius: 30px;
     padding: $spacing-sm $spacing-xl;
+    display: inline-flex;
+    align-items: center;
+    width: auto;
 
     &::after {
       display: none;
@@ -371,6 +371,7 @@
 
 .mobile-menu-footer {
   text-align: center;
+  margin-top: auto;
 
   .social-links {
     display: flex;
